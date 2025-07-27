@@ -1,0 +1,19 @@
+$colorShadow: #847c7c;
+$mainFuente: "Oswald", sans-serif;
+$mainColor: #ccced4;
+$secundaryColor: #4b8786; 
+$borderColor: #000;
+$footerBg: $mainColor;
+
+%title {
+  font-weight: 700;
+  color: #190303;
+  font-size: 60px;
+}
+
+%link {
+  font-size: 1.2rem;
+  font-weight: 800;
+  text-decoration: none;
+  color: #000;
+}
