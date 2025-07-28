@@ -1,32 +1,32 @@
 .header {
   width: 100%;
   padding: 20px 5px;
+  background-color: $mainColor;
   @include flex-center(row, 0);
   justify-content: space-between;
   box-sizing: border-box;
 
-  @media (max-width: 820px) {
-    padding: 15px;
-  }
-  @media (max-width: 430px) {
-    padding: 20px 10px;
+  &__logo {
+    width: 160px;
+    @include tableta { width: 120px; }
   }
 
   &__nav {
     @include flex-center(row, 35px);
-    @media (max-width: 820px) {
-      gap: 20px;
-    }
-    @media (max-width: 430px) {
-      display: none;
-    }
+    @include tableta { gap: 20px; }
+    @include celular { display: none; }
+  }
+
+  &__link {
+    @extend %link;
+    @include tableta { font-size: .8rem; }
   }
 
   &__user {
     @include flex-center(row, 30px);
     justify-content: flex-end;
     padding-left: 6rem;
-    @media (max-width: 820px) {
+    @include tableta {
       padding-left: 5px;
       gap: 9px;
     }
@@ -38,10 +38,12 @@
     width: 100%;
     @include flex-center(column, 20px);
     padding: 50px 0;
+    background-image: url("img/fondo3.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     text-align: center;
-    @media (max-width: 820px) {
-      padding: 30px 0;
-    }
+    @include tableta { padding: 30px 0; }
   }
 }
 
@@ -52,10 +54,8 @@
   grid-template-columns: repeat(3, 1fr);
   box-sizing: border-box;
 
-  @media (max-width: 820px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 430px) {
+  @include tableta { grid-template-columns: repeat(2, 1fr); }
+  @include celular {
     grid-template-columns: 1fr;
     padding: 0px 20px;
   }
@@ -64,15 +64,17 @@
 .cart {
   width: 500px;
   height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
   position: fixed;
   top: 100px;
-  right: 100%; 
+  right: 100%;
 
-  @media (max-width: 820px) {
+  @include tableta {
     width: 400px;
     top: 80px;
   }
-  @media (max-width: 430px) {
+  @include celular {
     width: 100%;
   }
 
@@ -80,18 +82,37 @@
     @include flex-center(row, 0);
     justify-content: space-between;
     padding: 15px 0;
-    @media (max-width: 430px) {
+    box-sizing: border-box;
+    @include celular {
       flex-direction: column;
+      align-items: center;
     }
   }
 }
 
 .footer {
   @include flex-center(column, 15px);
+  align-items: center;
   padding: 30px;
   margin-top: 30px;
+  border-top: 2px solid $borderColor;
+  background-color: $footerBg;
+
+  &__logo {
+    width: 200px;
+  }
 
   &__links {
     @include flex-center(row, 20px);
+  }
+
+  &__link {
+  @extend %link;
+  }
+
+  &__text {
+    @include celular {
+      text-align: center;
+    }
   }
 }
